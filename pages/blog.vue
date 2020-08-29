@@ -3,17 +3,8 @@
     <v-flex text-xs-left>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
             <li v-for="blog of blogs" :key="blog.id">
-        <n-link :to="`/blogs/${blog.id}`">{{ blog.title }}</n-link>
+        <n-link :to="`/blogs/${blog.id}`">{{ blog.id }} {{ blog.title }}</n-link>
       </li>
-      <div>
-      <img
-        :src="`${blog.image}`"
-        alt="Fitness_quotes"
-        class="mb-5"
-      >
-      </div>
-      <h1>{{blogs.body}}</h1>
-      <br>
     </v-flex>
   </v-layout>
 </template>
