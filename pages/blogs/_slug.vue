@@ -16,7 +16,7 @@
 </template>
 <script>
 import axios from "axios";
-import config from '../config/config';
+import config from '../../config/config';
 export default {
   asyncData (context) {
     return axios.get(config.url + config.bucket_slug + '/object-type/blogs',{
