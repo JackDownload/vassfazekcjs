@@ -1,19 +1,24 @@
 <template>
-  <v-layout>
-    <v-flex text-xs-left>
-       <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-            <li v-for="(blog,index) of blogs" :key="post.slug + '_' + index">
-        <n-link :to="`/blogs/${blog.slug}`"> {{ blog.title }}</n-link>
+  <div>
+    <h1>Blog blogs</h1>
+    <p v-if="$fetchState.pending">Fetching blogs...</p>
+    <p v-else-if="$fetchState.error">
+      Error while fetching blogs: {{ $fetchState.error.message }}
+    </p>
+    <ul v-else>
+      <li v-for="blog of blogs" :key="blog.id">
+        <n-link :to="`/blogs/${blog.id}`">{{ blog.title }}</n-link>
       </li>
-    </v-flex>
-  </v-layout>
+    </ul>
+  </div>
 </template>
+
 <script>
-import axios from "axios";
-import config from '../config/config';
-export default {
-    data ()
-    {bolgs: []
+  export default {
+    data() {
+      return {
+        blogs: []
+      }
     },
   asyncData () {
     return axios.get(config.url + config.bucket_slug + '/object-type/blogs',{
