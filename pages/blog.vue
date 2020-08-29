@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <h1>Cosmic Vue App</h1>
     <div v-if="loading">Loading...</div>
     <ul>
