@@ -6,11 +6,6 @@
         <n-link :to="`/blogs/${blog.slug}`">{{ blog.title }}</n-link>
       </li>
       <div>
-      <img
-        :src="`${blog.metadata.image}`"
-        alt="Fitness_quotes"
-        class="mb-5"
-      >
       </div>
     </v-flex>
   </v-layout>
