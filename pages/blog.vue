@@ -2,12 +2,12 @@
   <v-layout>
     <v-flex text-xs-left>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-            <li v-for="blog of blogs" :key="blog.slug">
-        <n-link :to="`/blogs/${blog.slug}`">{{ blog.title }}</n-link>
+            <li v-for="blog of blogs" :key="blog.id">
+        <n-link :to="`/blogs/${blog.id}`">{{ blog.title }}</n-link>
       </li>
       <div>
       <img
-        :src="`${blogs.image}`"
+        :src="`${blog.image}`"
         alt="Fitness_quotes"
         class="mb-5"
       >
