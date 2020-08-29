@@ -5,7 +5,7 @@
     <ul>
       <li v-for="blog in blogs" :key="blog.slug">
         <div>{{ blog.title }}</div>
-        <n-link :to="`/blogs/${blog.slug}`" router>{{ blog.title }}  , {{ blog.slug }} , {{ blog.metadata.slug }}</n-link>
+        <n-link :to="`/slug/${blog.slug}`" router>{{ blog.title }}  , {{ blog.slug }} , {{ blog.metadata.slug }}</n-link>
         <img alt="" :src="blog.metadata.image.url + '?w=400'"/>
       </li>
     </ul>
