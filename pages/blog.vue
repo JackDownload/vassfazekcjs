@@ -2,8 +2,8 @@
   <v-layout>
     <v-flex text-xs-left>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-            <li v-for="blog of blogs" :key="blog.id">
-        <n-link :to="`/blogs/${blog.id}`">{{ blog.id }} {{ blog.title }}</n-link>
+            <li v-for="(blog,index) of blogs" :key="post.slug + '_' + index">
+        <n-link :to="`/blogs/${blog.slug}`"> {{ blog.title }}</n-link>
       </li>
     </v-flex>
   </v-layout>
