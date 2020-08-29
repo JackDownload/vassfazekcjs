@@ -2,15 +2,9 @@
   <v-layout>
     <v-flex text-xs-left>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-      <h1>{{title}}</h1><br>
-      <div>
-      <img
-        :src="`${image}`"
-        alt="Fitness_quotes"
-        class="mb-5"
-      >
-      </div>
-      <div v-html="body"></div>
+            <li v-for="(blog,index) of blogs" :key="index">
+        <n-link :to="`/blog/${blog.slug}`">{{ blog.title }} </n-link>
+      </li>
     </v-flex>
   </v-layout>
 </template>
@@ -25,7 +19,7 @@ export default {
             }
         })
       .then(res => {
-        return {title : res.data.objects[0].title, body: res.data.objects[0].content, image:res.data.objects[0].metadata.image.url}
+        return {blog : res.data.objects}
       });
   }
 };
