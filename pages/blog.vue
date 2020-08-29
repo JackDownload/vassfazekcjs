@@ -4,7 +4,7 @@
     <div v-if="loading">Loading...</div>
     <ul>
       <li v-for="blog in blogs" :key="blog.slug">
-        <div>{{ blog.title }}</div> 
+        <div>{{ blog.title }} , {{ blog.metadata.teszt }}</div> 
         <img alt="" :src="blog.metadata.image"/>
       </li>
     </ul>
