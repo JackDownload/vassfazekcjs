@@ -84,7 +84,7 @@ export default {
         {
           icon: 'bubble_chart',
           title: 'Slug',
-          to: '/blogs/slug'
+          to: '/slug'
         }
       ],
       miniVariant: false,
