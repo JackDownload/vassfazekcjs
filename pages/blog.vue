@@ -1,19 +1,16 @@
 <template>
-  <v-layout>
-    <v-flex text-xs-left>
-       <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-            <li v-for="blog of blogs" :key="blog.slug">
+   <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <h1>Cosmic Vue App</h1>
+    <div v-if="loading">Loading...</div>
+    <ul>
+      <li v-for="blog in blogs" :key="blog.slug">
+        <div>{{ blog.title }}</div>
         <n-link :to="`/blogs/${blog.slug}`">{{ blog.title }}  , {{ blog.metadata.teszt }}</n-link>
+        <img alt="" :src="blog.metadata.image.url + '?w=400'"/>
       </li>
-      <div>
-      <img
-        :src="`${blog.metadata.image.url}`"
-        alt="Fitness_quotes"
-        class="mb-5"
-      >
-      </div>
-    </v-flex>
-  </v-layout>
+    </ul>
+  </div>
 </template>
 <script>
 import axios from "axios";
