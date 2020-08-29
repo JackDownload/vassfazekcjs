@@ -22,7 +22,7 @@ import axios from "axios";
 import config from '../config/config';
 export default {
     data ()
-    {bolg: []
+    {bolgs: []
     },
   asyncData () {
     return axios.get(config.url + config.bucket_slug + '/object-type/blogs',{
@@ -31,7 +31,7 @@ export default {
             }
         })
       .then(res => {
-        return {blog : res.data.objects}
+        return {blogs : res.data.objects}
       });
   }
 };
