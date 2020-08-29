@@ -1,11 +1,16 @@
 <template>
   <v-layout>
     <v-flex text-xs-left>
+           <li v-for="blog in blogs" :key="blog.slug">
+        <div>{{ blog.title }}</div>
+        <n-link :to="`/blogs/${blog.slug}`" router>{{ blog.title }}  , {{ blog.slug }} , {{ blog.metadata.slug }}</n-link>
+        <img alt="" :src="blog.metadata.image.url + '?w=400'"/>
+      </li>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-      <h1>{{blog.title}}</h1><br>
+      <h1>{{title}}</h1><br>
       <div>
       <img
-        :src="`${blog.metadata.image.url}`"
+        :src="`${image}`"
         alt="Fitness_quotes"
         class="mb-5"
       >
@@ -28,7 +33,7 @@ export default {
             }
         })
       .then(res => {
-        return {blogs : res.data.objects}
+        return {blogs: res.data.objects, title : res.data.objects[0].title, body: res.data.objects[0].content, image:res.data.objects[0].metadata.image.url}
       });
   }
 };
