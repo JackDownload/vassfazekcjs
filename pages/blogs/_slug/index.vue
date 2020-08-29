@@ -7,7 +7,7 @@
         <img alt="" :src="blog.metadata.image.url + '?w=400'"/>
       </li>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
-      <h1>{{title}}</h1><br>
+      <h1>Nev >> {{blog.title}}</h1><br>
       <div>
       <img
         :src="`${image}`"
