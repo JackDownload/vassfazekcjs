@@ -81,7 +81,6 @@ export default {
           title: 'Blogs',
           to: '/blogs'
         },
-        ,
         {
           icon: 'bubble_chart',
           title: 'Slug',
