@@ -1,20 +1,28 @@
 <template>
-    <div id="main">
-        <div class="inner">
-            <h1>{{blog.title}}
-                <nuxt-link v-bind: :to="`/blogs/${blog.slug}`">
-                </nuxt-link>
-            </h1>
-            <span class="image main" v-if="blog.metadata"><img :src="blog.metadata.image.url"></span>
-            <div v-html="blog.content"></div>
-        </div>
-    </div>
+  <v-layout>
+    <v-flex text-xs-left>
+           <li v-for="blog in blogs" :key="blog.slug">
+        <div>{{ blog.title }}</div>
+        <n-link :to="`/blogs/${blog.slug}`" router>{{ blog.title }}  , {{ blog.slug }} , {{ blog.metadata.slug }}</n-link>
+        <img alt="" :src="blog.metadata.image.url + '?w=400'"/>
+      </li>
+       <v-btn color="primary" flat nuxt to="/">Back</v-btn>
+      <h1>{{title}}</h1><br>
+      <div>
+      <img
+        :src="`${image}`"
+        alt="Fitness_quotes"
+        class="mb-5"
+      >
+      </div>
+      <div v-html="body"></div>
+    </v-flex>
+  </v-layout>
 </template>
-
 <script>
-    import axios from 'axios';
-    import config from '../../../config/config';
-    export default {
+import axios from "axios";
+import config from '../../../config/config';
+ export default {
         asyncData ({ params }) {
     return axios.get(config.url + config.bucket_slug + '/object-type/blogs',{
             params: {
@@ -30,5 +38,9 @@
                 title: this.blog.title
             }
         }
-    }
+    };
+        
 </script>
+
+
+
