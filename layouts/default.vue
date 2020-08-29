@@ -79,7 +79,7 @@ export default {
         {
           icon: 'bubble_chart',
           title: 'Blogs',
-          to: '/blogs/_slug'
+          to: '/blogs/${blog.slug}'
         }
       ],
       miniVariant: false,
