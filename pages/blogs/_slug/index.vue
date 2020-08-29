@@ -3,7 +3,6 @@
         <div class="inner">
             <h1>{{blog.title}}
                 <nuxt-link v-bind: :to="`/blogs/${blog.slug}`">
-                    @{{blog.slug}}
                 </nuxt-link>
             </h1>
             <span class="image main" v-if="blog.metadata"><img :src="blog.metadata.image.url"></span>
@@ -13,7 +12,8 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import axios from 'axios';
+    import config from '../../../config/config';
     export default {
         asyncData ({ params }) {
     return axios.get(config.url + config.bucket_slug + '/object-type/blogs',{
