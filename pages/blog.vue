@@ -3,16 +3,16 @@
     <v-flex text-xs-left>
        <v-btn color="primary" flat nuxt to="/">Back</v-btn>
             <li v-for="blog of blogs" :key="blog.slug">
-        <n-link :to="`/blogs/${blog.slug}`">{{ blog.title }}</n-link>
+        <n-link :to="`/blogs/${blog.slug}`">{{ blog.title }} -- {{ blog.metadata.description }}</n-link>
       </li>
       <div>
       <img
-        :src="`${blogs.image}`"
+        :src="`${blog.metadata.image}`"
         alt="Fitness_quotes"
         class="mb-5"
       >
       </div>
-      <h1>{{blogs.body}}</h1>
+      <h1>{{blog.body}}</h1>
       <br>
     </v-flex>
   </v-layout>
